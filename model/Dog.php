@@ -2,9 +2,9 @@
 
 namespace Model;
 
-class Cat extends Model
+class Dog extends Model
 {
-    public $url = 'https://aws.random.cat/meow';
+    public $url = 'https://random.dog/woof.json';
 
     function __construct__()
     {

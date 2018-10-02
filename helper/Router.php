@@ -18,9 +18,11 @@ class Router
         $animal = ucfirst($uris[0]);
         if (isset($uris[1])) {
             $number = $uris[1];
+        } else {
+            $number = 1;
         }
         $dispatcher = new Dispatcher();
-        if (count($uris) > 2) {
+        if (count($uris) > 2 ||  ($animal != "Dog" && $animal != "Cat" && $animal != "Fox")) {
             $dispatcher::code404();
         } else {
             $dispatcher::animal($animal, $number);

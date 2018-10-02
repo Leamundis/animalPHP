@@ -1,8 +1,5 @@
 <?php
-
 namespace Helper;
-
-
 class View
 {
     private $viewDirectory = "./view/";
@@ -11,13 +8,14 @@ class View
     {
         $content = $this->loadView($viewName);
         $template = $this->loadView('base', 'template');
-        $navBar = $this->loadView('menu', 'template');
         $renderHTML = str_replace('{{CONTENT}}', $content, $template);
-        $renderHTML = str_replace('{{MENU}}', $navBar, $renderHTML);
         foreach ($values as $key => $value) {
+            //var_dump($key, $value); die;
             $renderHTML = str_replace($key, $value, $renderHTML);
         }
         echo $renderHTML;
+
+
     }
 
     private function loadView($viewName, $type = 'view')
